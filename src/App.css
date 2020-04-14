@@ -45,10 +45,6 @@ h2 {
   background-color: #273c75;
 }
 
-.iconButton {
-  width: 50px;
-}
-
 .menuButton:hover {
   border-style: none;
   background-color: #fbc531;
