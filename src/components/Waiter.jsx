@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import UserTable from "./UserTable";
-import AddProductForm from "./AddProductForm";
 import LunchMenu from "./lunchMenu";
+import TableForm from "./TableForm";
 
 
-const Mesonero = () => {
+const Waiter = () => {
   
   // state
   const [foodList, setFoodList] = useState([]);
@@ -19,21 +19,24 @@ const Mesonero = () => {
   return (
     <Fragment>
       <div>
-      <h1 className="mainTitle">Mesonero</h1>
+        <h1 className="mainTitle">Mesonero</h1>
       </div>
+
       <div>
-          <AddProductForm  
-            addFood={addFood} />
+          <TableForm />
       </div>
-      <div>
+
         <div className="container">
           <div className="flex-row">
             <div className="flex-large">
+
               <div>
                 <LunchMenu 
                   addFood={addFood} />
               </div>
+
             </div>
+
             <div className="flex-large">
               <h2>View Order</h2>
               <UserTable 
@@ -41,10 +44,11 @@ const Mesonero = () => {
                 addFood={addFood}
               />
             </div>
+
           </div>
         </div>
-      </div>
+   
     </Fragment>
   );
 };
-export default Mesonero;
+export default Waiter;

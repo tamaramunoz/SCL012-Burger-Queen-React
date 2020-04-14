@@ -1,35 +1,36 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Mesonero from "./components/Mesonero.jsx";
-import Cocina from "./components/Cocina.jsx";
-import Logo from './Logo-burgerQueen.png'
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Waiter from './components/Waiter';
+import Kitchen from './components/Kitchen';
+
 
 function App() {
   
   return (
-       
-    <Router>      
-      <button className="navButton">
-        <Link to="/home">Home</Link>
-      </button>
-      <button className="navButton">
-        <Link to="/mesonero">Mesonero</Link>
-      </button>
-      <button className="navButton">
-        <Link to="/cocina">Cocina</Link>
-      </button>     
+<Fragment>
+      <Router>
+        <div className="container mt-5">
+          <NavBar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-      <Route exact path="/app" component={App} />
-      <Route path="/cocina" component={Cocina} />
-      <Route path="/mesonero" component={Mesonero} />
+            <Route path="/waiter">
+              <Waiter />
+            </Route>
 
-      <div className="logo">
-    <img src={Logo} alt='' ></img> 
-    </div>
+            <Route path="/kitchen">
+              <Kitchen />
+            </Route>
+          </Switch>
 
-    </Router>
- 
+        </div>
+      </Router>
+    </Fragment>
   );
 }
 
