@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+
+body{
+  background-color: white;
+  font-family: 'Sen', sans-serif;
+  margin: 0;
+  min-height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-height: 800px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.mainTitle {
+  font-family: 'Sen', sans-serif;
+  color: #c23616;
+  margin-left: 35%;
+  font-size: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-family: 'Sen', sans-serif;
+  color: #c23616;
+
+}
+
+.formUser {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.menu{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.menuButton {
+  padding: 15px;
+  margin: 5px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: #273c75;
+}
+
+.iconButton {
+  width: 50px;
+}
+
+.menuButton:hover {
+  border-style: none;
+  background-color: #fbc531;
+  color: #192a56;
+}
+
+.generalButtons {
+  font-family: 'Sen', sans-serif;
+  border-style: none;
+  border-radius: 20px;
+  background-color: #c23616;
+}
+
+.generalButtons:hover {
+  border-style: none;
+  background-color: #e84118;
+}
+
+.navButton {
+  border-style: none;
+  border-radius: 10px;
+  background-color: #fbc531;
+  padding: 20px;
+  margin: 10px;
+  max-height: 60px;
+}
+
+.navButton:hover {
+  border-style: none;
+  
+  background-color: #273c75;
+}
+.navbar{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.buttonBar{
+  display: flex;
+  justify-content: center;
+
 }
