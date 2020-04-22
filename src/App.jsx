@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Waiter from './components/Waiter';
 import Kitchen from './components/Kitchen';
+import Breakfast from "./components/Breakfast";
+import Lunch from "./components/Lunch";
 
 
 function App() {
@@ -26,6 +28,10 @@ function App() {
             <Route path="/kitchen">
               <Kitchen />
             </Route>
+
+
+            <Route path="/breakfast" component={Breakfast} />
+            <Route path="/lunch" component={Lunch} />
           </Switch>
 
         </div>

@@ -46,7 +46,7 @@ const TableForm = (props) => {
           <button className="btn btn-danger" type="submit">Agregar</button>
         </div>
       </form>
-      <h3>{datos.nombre} - {datos.mesa}</h3>
+      <h5 > {datos.nombre} - {datos.mesa} </h5>
     </Fragment>
   );
 };
