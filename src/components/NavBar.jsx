@@ -1,26 +1,26 @@
 import React, { Fragment } from 'react';
 import { Link, NavLink } from "react-router-dom";
-
-import Logo from '../logo-bq.png';
+import '../css/Navbar.css'
+import Logo from '../img/logo-bq.png';
 
 
 const NavBar = () => {
 
     return (
         <Fragment>
-            <div className="navbar navbar-dark bg-dark">
+            <div className="navbar">
                 <Link className="navbar-brand" to="/"><img src={Logo} alt="logo" width={70} /></Link>
                 <div>
                     <div className="d-flex">
-                        <NavLink className="btn btn-dark mr-2" to="/" exact>
+                        <NavLink className="buttonnav mr-2" to="/" exact>
                             Inicio
                         </NavLink>
 
-                        <NavLink className="btn btn-dark mr-2" to="/waiter">
+                        <NavLink className="buttonnav mr-2" to="/waiter">
                             Mesero
                         </NavLink>
 
-                        <NavLink className="btn btn-dark mr-2" to="/kitchen">
+                        <NavLink className="buttonnav mr-2" to="/kitchen">
                             Cocina
                         </NavLink>
                     </div>

@@ -9,9 +9,7 @@ const Breakfast = () => {
   const [order, setOrder] = useState({})
 
   const [nameProduct, setNameProduct] = useState([])
-  const [price, setPrice] = useState(0)
 
-  const [id, setId] = useState('')
 
 
   useEffect(() => {
@@ -51,47 +49,48 @@ const Breakfast = () => {
 
 
   const addProduct = async (item) => {
-    console.log('hice click')
+    // console.log('hice click')
     console.log(item)
 
     try {
 
+      const takingOrder = {
+        name: item.name,
+        price: item.price
+      }
+
       setNameProduct([
         ...nameProduct,
-        { name: item.name, id: item.id, price: item.price }
+        takingOrder
       ])
 
-
-
-      await db.collection('pedido').add({ nameProduct })
+      await db.collection('pedido').add(takingOrder)
+      // await db.collection('pedido').add({ takingOrder })
       // const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
       // setOrder(arrayData)
 
     } catch (error) {
       console.log(error)
     }
-
-    console.log(nameProduct)
-
+    // console.log(nameProduct)
   }
 
-
-  const deleteFoodFromList = async (id) => {
+  
+  const deleteFoodFromList = async(id) => {
     console.log('haciendo click a eliminar')
-    console.log(id)
 
     try {
       await db.collection('pedido').doc(id).delete()
+      console.log(id)
 
-      const arrayFiltrado = nameProduct.filter(item => item.id !== id)
-      setOrder(arrayFiltrado)
+      // const arrayFiltrado = data.docs.filter(item => item.id !== id)
+      // setOrder(arrayFiltrado)
 
     } catch (error) {
       console.log(error);
     }
 
   }
-
 
   return (
     <Fragment>

@@ -1,0 +1,17 @@
+.navbar {
+    background-color: #003538;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.buttonnav {
+    background-color: #003538;
+    color: #fefefe;
+    padding: 20px;
+}
+
+.buttonnav:hover {
+    background-color: #01292b;
+    color: #f9a531;
+    text-decoration: none;
+    border-radius: 15px;
+}

@@ -5,8 +5,8 @@
 
 body{
   display: flex;
-  background-color: white;
-  font-family: 'Sen', sans-serif;
+  background-color: #fefefe;
+  font-family: 'Work Sans', sans-serif;
   margin: 0;
   min-height: 100%;
 }
@@ -18,15 +18,15 @@ body{
 }
 
 .mainTitle {
-  font-family: 'Sen', sans-serif;
-  color: #c23616;
+  font-family: 'Work Sans', sans-serif;
+  color: #003538;
   margin-left: 35%;
   font-size: 50px;
 }
 
 h2 {
-  font-family: 'Sen', sans-serif;
-  color: #c23616;
+  font-family: 'Work Sans', sans-serif;
+  color: #003538;
 }
 
 .formUser {
@@ -45,32 +45,28 @@ Button.menuButton {
   margin: 5px;
   border-style: none;
   border-radius: 20px;
-  background-color: #273c75;
+  color: #f9a531;
+  background-color: #003538;
 }
 
 .menuButton:hover {
   border-style: none;
-  background-color: #fbc531;
-  color: #192a56;
+  background-color: #f9a531;
+  color: #003538;
 }
 
 .generalButtons {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   border-style: none;
   border-radius: 20px;
-  background-color: #c23616;
+  background-color: #003538;
 }
 
 .generalButtons:hover {
   border-style: none;
-  background-color: #e84118;
+  background-color: #01292b;
 }
 
-.navbar{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
 
 .tabla {
   flex-wrap: wrap;
