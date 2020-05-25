@@ -1,6 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import TableForm from "../views/TableForm";
-import { db } from '../firebase';
+import React, { Fragment, useState, useEffect } from 'react'
+import TableForm from "../views/TableForm"
+import { db } from '../firebase'
+import shortid from 'shortid'
 
 
 const Lunch = (props) => {
@@ -9,11 +10,10 @@ const Lunch = (props) => {
     const [order, setOrder] = useState([]);
 
     useEffect(() => {
-        const obtenerDatos = async () => {
+        const getInfo = async () => {
             try {
                 const data = await db.collection('almuerzo').get()
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                // console.log(arrayData);
                 setLunch(arrayData)
 
             } catch (error) {
@@ -21,24 +21,47 @@ const Lunch = (props) => {
             }
         }
 
-        obtenerDatos()
+        getInfo()
 
     }, [])
 
-    const deleteFoodFromList = async (id) => {
-        console.log('haciendo click a eliminar')
+    const selectProductLunch = (item) => {
+        console.log(item)
 
+        setOrder([
+            ...order,
+            { name: item.name, price: item.price, id: shortid.generate() }
+        ])
+    }
+
+    const addOrder = async () => {
         try {
-            await db.collection('pedido').doc(id).delete()
-
-            const arrayFiltrado = lunch.filter(item => item.id !== id)
-            setOrder(arrayFiltrado)
+            await db.collection('pedido').add({
+                takeOrder: order
+            })
 
         } catch (error) {
             console.log(error);
         }
 
+        setOrder([])
     }
+
+    const deleteFoodFromList = async (id) => {
+        const arrayFiltrado = order.filter(item => item.id !== id)
+        setOrder(arrayFiltrado)
+    }
+
+    const totalAmount = () => {
+        let suma = 0;
+            order.map(e => (
+               suma += e.price
+            ))
+            
+        console.log(suma);
+        return suma;
+    }
+
 
     return (
         <Fragment>
@@ -53,8 +76,12 @@ const Lunch = (props) => {
                         <h3>Lista de productos</h3>
                         {
                             lunch.map(item => (
-                                <button className="menuButton" key={item.id}>
-                                    <img src={item.img} alt="" className="iconButton" width={45}></img>
+                                <button
+                                    className="menuButton"
+                                    key={item.id}
+                                    onClick={(e) => selectProductLunch(item)}
+                                >
+                                    <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
                                     <p>{item.name}</p> <p>${item.price}</p>
                                 </button>
                             ))
@@ -71,8 +98,8 @@ const Lunch = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {lunch.length > 0 ? (
-                                    lunch.map((product, id) => (
+                                {order.length > 0 ? (
+                                    order.map((product, id) => (
                                         <tr key={product.id} className='border-top margin-1 font-size-1'>
                                             <td>{product.name}</td>
                                             <td>{product.price}</td>
@@ -92,12 +119,17 @@ const Lunch = (props) => {
                                     )}
                             </tbody>
                         </table>
+                        <div>
+                                <p>Total: {totalAmount()}</p>
+                        </div>
+
+                        <button
+                            onClick={() => addOrder()}
+                            value={order}
+                        >Enviar a Cocina</button>
                     </div>
                 </div>
             </div>
-
-
-
         </Fragment>
     )
 }

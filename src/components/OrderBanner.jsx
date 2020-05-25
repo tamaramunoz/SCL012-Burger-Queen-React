@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const TaskBanner = (props) => {
+const OrderBanner = (props) => {
     return ( 
         <Fragment>
             <h4 className="bg-warning text-white text-center p-4">
@@ -10,4 +10,4 @@ const TaskBanner = (props) => {
      );
 }
  
-export default TaskBanner;
+export default OrderBanner;

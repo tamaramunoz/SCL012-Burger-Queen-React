@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import TaskRow from '../components/TaskRow'
-import TaskBanner from '../components/TaskBanner'
+import OrderBanner from '../components/OrderBanner'
 import VisibilityControl from '../components/VisibilityControl'
 import { db } from '../firebase'
 
@@ -45,12 +45,12 @@ const Kitchen = (props) => {
      return (
           <Fragment>
                <div>
-                    <TaskBanner
+                    <OrderBanner
                          userName={userName}
                          order={order}
                     />
                     <ul>
-                         {order.map(item => ( <li>{item.id}</li> ))}
+                         {order.map(item => ( <li key={item.id}>{item.id}</li> ))}
                     </ul>
 
                     <table className="table table-striped table-bordered">

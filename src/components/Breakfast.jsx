@@ -11,10 +11,10 @@ const Breakfast = (props) => {
 
   useEffect(() => {
     const getData = async () => {
+
       try {
         const data = await db.collection('desayuno').get()
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        // console.log(arrayData);
         setBreakfast(arrayData)
 
       } catch (error) {
@@ -32,17 +32,18 @@ const Breakfast = (props) => {
 
     setNameProduct([
       ...nameProduct,
-      {name: item.name, price: item.price, id: shortid.generate()}
+      { name: item.name, price: item.price, id: shortid.generate() }
     ])
   }
 
+
   const addOrder = async () => {
-    console.log('enviando a firebase');
+    // console.log('enviando a firebase');
 
     try {
-      await db.collection('pedido').add({ 
+      await db.collection('pedido').add({
         takeOrder: nameProduct
-       })
+      })
 
     } catch (error) {
       console.log(error);
@@ -53,13 +54,21 @@ const Breakfast = (props) => {
 
 
   const deleteFoodFromList = async (id) => {
-    // console.log('haciendo click a eliminar')
-
-      const arrayFiltrado = nameProduct.filter(item => item.id !== id)
-      setNameProduct(arrayFiltrado)
-
+    const arrayFiltrado = nameProduct.filter(item => item.id !== id)
+    setNameProduct(arrayFiltrado)
   }
 
+
+  const totalAmount = () => {
+    let suma = 0;
+        nameProduct.map(e => (
+           suma += e.price
+        ))
+
+    return suma;
+  }
+
+  
   return (
     <Fragment>
       <div className="justify-content-center">
@@ -117,6 +126,9 @@ const Breakfast = (props) => {
                   )}
               </tbody>
             </table>
+            <div>
+              <p>Total: {totalAmount()}</p>
+            </div>
 
             <button
               onClick={() => addOrder()}
