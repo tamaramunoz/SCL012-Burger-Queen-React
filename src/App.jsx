@@ -14,7 +14,7 @@ function App() {
   return (
 <Fragment>
       <Router>
-        <div className="container mt-5">
+        <div className="container mt-4">
           <NavBar />
           <Switch>
             <Route exact path="/">

@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import { Card } from 'react-bootstrap'
 import { NavLink } from "react-router-dom"
 import breakfastphoto from '../img/breakfast.jpg'
-import lunchphoto from '../img/lunch.jpg'
+import lunchphoto from '../img/lunch.jpeg'
 import '../css/Waiter.css'
 
 

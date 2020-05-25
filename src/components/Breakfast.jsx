@@ -37,7 +37,7 @@ const Breakfast = (props) => {
   }
 
   const addOrder = async () => {
-    console.log('hice click');
+    console.log('enviando a firebase');
 
     try {
       await db.collection('pedido').add({ 
@@ -53,17 +53,11 @@ const Breakfast = (props) => {
 
 
   const deleteFoodFromList = async (id) => {
-    console.log('haciendo click a eliminar')
+    // console.log('haciendo click a eliminar')
 
-    try {
-      await db.collection('pedido').doc(id).delete()
-      console.log(id)
-      // const arrayFiltrado = data.docs.filter(item => item.id !== id)
-      // setOrder(arrayFiltrado)
+      const arrayFiltrado = nameProduct.filter(item => item.id !== id)
+      setNameProduct(arrayFiltrado)
 
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   return (
