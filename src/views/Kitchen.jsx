@@ -8,10 +8,10 @@ const Kitchen = (props) => {
 
      const [userName, setUserName] = useState('Burger Queen')
      const [order, setOrder] = useState([])
-
      const [showCompleted, setShowCompleted] = useState(true)
 
      useEffect(() => {
+
           const getOrders = async () => {
 
                try {
@@ -30,7 +30,7 @@ const Kitchen = (props) => {
      }, [])
 
 
-     const toggleOrder = task =>
+     const toggleOrder = (task) =>
           setOrder(order.map(item => (item.name === task.name ? { ...item, done: !item.done } : item)))
           
 

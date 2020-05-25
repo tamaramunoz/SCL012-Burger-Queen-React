@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import TableForm from "../views/TableForm"
 import '../App.css'
 import { db } from '../firebase'
+import shortid from 'shortid'
 
 const Breakfast = (props) => {
 
@@ -24,18 +25,18 @@ const Breakfast = (props) => {
     getData()
 
   }, [])
-  
+
 
   const SelectProduct = (item) => {
     console.log(item)
 
     setNameProduct([
       ...nameProduct,
-      item
+      {name: item.name, price: item.price, id: shortid.generate()}
     ])
   }
 
-  const addOrder = async (item) => {
+  const addOrder = async () => {
     console.log('hice click');
 
     try {
