@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import TaskRow from '../components/TaskRow'
 import TaskBanner from '../components/TaskBanner'
-import TaskCreator from '../components/TaskCreator'
 import VisibilityControl from '../components/VisibilityControl'
 import { db } from '../firebase'
 
@@ -18,7 +17,7 @@ const Kitchen = (props) => {
                try {
                     const data = await db.collection('pedido').get()
                     const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                    // console.log(arrayData);
+                    console.log(arrayData);
                     setOrder(arrayData)
 
                } catch (error) {
@@ -31,21 +30,15 @@ const Kitchen = (props) => {
      }, [])
 
 
-     const createNewTask = taskName => {
-          if (!order.find(t => t.name === taskName)) {
-               setOrder([...order, { name: taskName, done: false }])
-          }
-     }
-
-     const toggleTask = task =>
-          setOrder(order.map(t => (t.name === task.name ? { ...t, done: !t.done } : t)))
+     const toggleOrder = task =>
+          setOrder(order.map(item => (item.name === task.name ? { ...item, done: !item.done } : item)))
+          
 
      const taskTableRows = (doneValue) => {
-
           return order
-               .filter(task => task.done === doneValue)
-               .map(task => (
-                    <TaskRow task={task} key={task.name} toggleTask={toggleTask} />
+               .filter(item => item.done === doneValue)
+               .map(item => (
+                    <TaskRow item={item} key={item.name} toggleOrder={toggleOrder} />
                ))
      }
 
@@ -56,10 +49,10 @@ const Kitchen = (props) => {
                          userName={userName}
                          order={order}
                     />
-                    <TaskCreator
-                         createNewTask={createNewTask}
+                    <ul>
+                         {order.map(item => ( <li>{item.id}</li> ))}
+                    </ul>
 
-                    />
                     <table className="table table-striped table-bordered">
                          <thead>
                               <tr>

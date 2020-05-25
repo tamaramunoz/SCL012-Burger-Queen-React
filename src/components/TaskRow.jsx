@@ -3,12 +3,12 @@ import React, { Fragment } from 'react'
 export const TaskRow = (props) => {
     return (
         <Fragment>
-            <tr key={props.task.name}>
-                <td>{props.task.name}</td>
+            <tr key={props.item.name}>
+                <td>{props.item.name}</td>
                 <td>
                     <input type="checkbox" 
-                    checked={props.task.done} 
-                    onChange={() => props.toggleTask(props.task)} 
+                    checked={props.item.done} 
+                    onChange={() => props.toggleTask(props.item)} 
                     />
                 </td>
             </tr>
