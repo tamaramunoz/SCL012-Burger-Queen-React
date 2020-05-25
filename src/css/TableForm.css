@@ -1,0 +1,30 @@
+.user-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.user-data {
+    font-size: 30px;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-input {
+    border-radius: 15px;
+    padding: 10px;
+    border-style: solid;
+    border-color: #003538;
+    margin-left: 10px;
+}
+
+.button-agregar {
+    padding: 15px;
+    border-radius: 20px;
+    border-style: none;
+    color: #003538;
+    background-color: #f9a531;
+}

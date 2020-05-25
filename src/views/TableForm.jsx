@@ -1,52 +1,61 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react'
+import '../css/TableForm.css'
 
 const TableForm = (props) => {
 
-  const [datos, setDatos] = useState({
-    nombre: '',
-    mesa: ''
+  const [customerData, setCustomerData] = useState({
+    name: '',
+    table: ''
   })
 
   const handleInpuntChange = (event) => {
     // console.log(event.target.value)
-    setDatos({
-      ...datos,
+    setCustomerData({
+      ...customerData,
       [event.target.name]: event.target.value
     })
   }
 
-  const enviarDatos = (event) => {
+  const sendUserData = (event) => {
     event.preventDefault();
-    console.log(datos.nombre + ' ' + datos.mesa)
+    console.log(customerData.name + ' ' + customerData.table)
   }
 
   return (
     <Fragment>
-      <h4>Datos Cliente</h4>
-      <form className="row" onSubmit={enviarDatos}>
-        <div className="col-md-3">
-          <input
-            placeholder="Ingrese Nombre"
-            className="form-control"
-            type="text"
-            name="nombre"
-            onChange={handleInpuntChange}
-          ></input>
+      <div className="user-container" >
+        <h4 className="user-data" >Datos Cliente</h4>
+
+        <form className="user-form" onSubmit={sendUserData}>
+          <div className="col-md-3">
+            <input
+              placeholder="Ingrese Nombre"
+              className="form-input"
+              type="text"
+              name="name"
+              onChange={handleInpuntChange}
+            ></input>
+          </div>
+
+          <div className="col-md-3">
+            <input
+              placeholder="Ingrese Mesa"
+              className="form-input"
+              type="text"
+              name="table"
+              onChange={handleInpuntChange}
+            ></input>
+          </div>
+
+          <div className="col-md-3">
+            <button className="button-agregar" type="submit">Agregar</button>
+          </div>
+        </form>
+
+        <div>
+          <p> {customerData.name} - {customerData.table} </p>
         </div>
-        <div className="col-md-3">
-          <input
-            placeholder="Ingrese Mesa"
-            className="form-control"
-            type="text"
-            name="mesa"
-            onChange={handleInpuntChange}
-          ></input>
-        </div>
-        <div className="col-md-3">
-          <button className="btn btn-danger" type="submit">Agregar</button>
-        </div>
-      </form>
-      <h5 > {datos.nombre} - {datos.mesa} </h5>
+      </div>
     </Fragment>
   );
 };

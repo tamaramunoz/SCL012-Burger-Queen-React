@@ -28,7 +28,7 @@ const Breakfast = (props) => {
 
 
   const SelectProduct = (item) => {
-    console.log(item)
+    // console.log(item)
 
     setNameProduct([
       ...nameProduct,
@@ -38,7 +38,6 @@ const Breakfast = (props) => {
 
 
   const addOrder = async () => {
-    // console.log('enviando a firebase');
 
     try {
       await db.collection('pedido').add({
@@ -71,11 +70,12 @@ const Breakfast = (props) => {
   
   return (
     <Fragment>
+      <div className="container mt-5">
+        
       <div className="justify-content-center">
         <TableForm />
       </div>
 
-      <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
             <h2>Desayuno</h2>
