@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import TableForm from "./TableForm";
+import TableForm from "../views/TableForm";
 import { db } from '../firebase';
 
 

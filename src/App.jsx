@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import Waiter from './components/Waiter';
-import Kitchen from './components/Kitchen';
+import NavBar from './views/NavBar';
+import Home from './views/Home';
+import Waiter from './views/Waiter';
+import Kitchen from './views/Kitchen';
 import Breakfast from "./components/Breakfast";
 import Lunch from "./components/Lunch";
 

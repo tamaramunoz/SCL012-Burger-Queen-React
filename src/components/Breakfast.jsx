@@ -1,16 +1,12 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import TableForm from "./TableForm"
+import TableForm from "../views/TableForm"
 import '../App.css'
 import { db } from '../firebase'
 
-const Breakfast = () => {
+const Breakfast = (props) => {
 
   const [breakfast, setBreakfast] = useState([])
-  const [order, setOrder] = useState({})
-
   const [nameProduct, setNameProduct] = useState([])
-
-
 
   useEffect(() => {
     const getData = async () => {
@@ -28,68 +24,45 @@ const Breakfast = () => {
     getData()
 
   }, [])
+  
 
-
-  useEffect(() => {
-    const getOrders = async () => {
-      try {
-        const data = await db.collection('pedido').get()
-        const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        // console.log(arrayData);
-        setOrder(arrayData)
-
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    getOrders()
-
-  }, [])
-
-
-  const addProduct = async (item) => {
-    // console.log('hice click')
+  const SelectProduct = (item) => {
     console.log(item)
 
-    try {
-
-      const takingOrder = {
-        name: item.name,
-        price: item.price
-      }
-
-      setNameProduct([
-        ...nameProduct,
-        takingOrder
-      ])
-
-      await db.collection('pedido').add(takingOrder)
-      // await db.collection('pedido').add({ takingOrder })
-      // const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-      // setOrder(arrayData)
-
-    } catch (error) {
-      console.log(error)
-    }
-    // console.log(nameProduct)
+    setNameProduct([
+      ...nameProduct,
+      item
+    ])
   }
 
-  
-  const deleteFoodFromList = async(id) => {
+  const addOrder = async (item) => {
+    console.log('hice click');
+
+    try {
+      await db.collection('pedido').add({ 
+        takeOrder: nameProduct
+       })
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    setNameProduct([])
+  }
+
+
+  const deleteFoodFromList = async (id) => {
     console.log('haciendo click a eliminar')
 
     try {
       await db.collection('pedido').doc(id).delete()
       console.log(id)
-
       // const arrayFiltrado = data.docs.filter(item => item.id !== id)
       // setOrder(arrayFiltrado)
 
     } catch (error) {
       console.log(error);
     }
-
   }
 
   return (
@@ -109,14 +82,13 @@ const Breakfast = () => {
                 <button
                   className="menuButton"
                   key={item.id}
-                  onClick={(e) => addProduct(item)}
+                  onClick={(e) => SelectProduct(item)}
                 >
-                  <img src={item.img} alt="" className="iconButton" width={45}></img>
+                  <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
                   <p>{item.name}</p> <p>${item.price}</p>
                 </button>
               ))
             }
-
           </div>
 
           <div>
@@ -150,6 +122,11 @@ const Breakfast = () => {
                   )}
               </tbody>
             </table>
+
+            <button
+              onClick={() => addOrder()}
+              value={nameProduct}
+            >Enviar a Cocina</button>
           </div>
         </div>
       </div>
