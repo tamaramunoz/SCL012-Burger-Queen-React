@@ -23,22 +23,17 @@ const Breakfast = (props) => {
     }
 
     getData()
-
   }, [])
-
 
   const SelectProduct = (item) => {
     // console.log(item)
-
     setNameProduct([
       ...nameProduct,
       { name: item.name, price: item.price, id: shortid.generate() }
     ])
   }
 
-
   const addOrder = async () => {
-
     try {
       await db.collection('pedido').add({
         takeOrder: nameProduct
@@ -51,12 +46,10 @@ const Breakfast = (props) => {
     setNameProduct([])
   }
 
-
   const deleteFoodFromList = async (id) => {
     const arrayFiltrado = nameProduct.filter(item => item.id !== id)
     setNameProduct(arrayFiltrado)
   }
-
 
   const totalAmount = () => {
     let suma = 0;
@@ -73,7 +66,7 @@ const Breakfast = (props) => {
       <div className="container mt-5">
         
       <div className="justify-content-center">
-        <TableForm />
+        <TableForm customerData={props.customerData} />
       </div>
 
         <div className="row">
@@ -134,6 +127,8 @@ const Breakfast = (props) => {
               onClick={() => addOrder()}
               value={nameProduct}
             >Enviar a Cocina</button>
+
+                <p> {props.customerData}</p>
           </div>
         </div>
       </div>

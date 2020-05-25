@@ -57,7 +57,7 @@ const TableForm = (props) => {
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
 export default TableForm;
