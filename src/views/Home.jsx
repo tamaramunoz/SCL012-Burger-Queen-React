@@ -1,18 +1,23 @@
 import React from 'react';
 import '../css/Home.css'
 import { Card } from 'react-bootstrap'
-import background from '../img/welcome-bq.jpg'
+import burger from '../img/burger-white.png'
+import logobq from '../img/main-logo.png'
+
 
 const Home = () => {
     return (
-        <div>
-            <Card className="bg-dark">
-                <Card.Img src={background} alt="Card image" />
+        <div className="home-container">
+            <Card className="background-images">
+                <Card.Img src={burger} alt="hamburguesa" />
                 <Card.ImgOverlay>
-                    <Card.Text className="burger-title">Burger Queen</Card.Text>
+                <div className="text-home-box">
+                    <img src={logobq} alt="logo" className="home-logo"/>
+                    
                     <Card.Text className="burger-text">
                         Aplicación para tablets donde el mesero puede enviar sus pedidos a la cocina.
                     </Card.Text>
+                    </div>
                 </Card.ImgOverlay>
             </Card>
         </div>

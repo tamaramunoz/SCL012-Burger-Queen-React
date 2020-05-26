@@ -1,11 +1,23 @@
-.burger-title {
-    font-family: 'Quicksand', sans-serif;
-    color: #fefefe;
-    font-size: 60px;
+.home-container{
+    display: flex;
+}
+
+.background-images {
+    width: 900px;
+}
+
+.home-logo {
+    width: 250px;
+}
+
+.text-home-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
 }
 
 .burger-text {
     font-family: 'Quicksand', sans-serif;
-    color: #fefefe;
+    color: #01292b;
     font-size: 20px;
 }

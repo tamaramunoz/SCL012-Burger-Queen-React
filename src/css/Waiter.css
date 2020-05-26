@@ -23,3 +23,21 @@
     background-color: #f9a531;
     color: #003538;
 }
+
+.space-down {
+    padding-bottom: 150px;
+    background-color: #f9a531;
+}
+
+.space-down:hover {
+    background-color: #003538;
+}
+
+.space-up {
+    padding-top: 150px;
+    background-color: #f9a531;
+}
+
+.space-up:hover {
+    background-color: #003538;
+}

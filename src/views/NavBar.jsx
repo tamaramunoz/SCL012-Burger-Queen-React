@@ -13,11 +13,11 @@ const NavBar = () => {
                 <div>
                     <div className="d-flex">
                         
-                        <NavLink className="buttonnav mr-2" to="/waiter">
+                        <NavLink className="buttonnav" to="/waiter">
                             Mesero
                         </NavLink>
 
-                        <NavLink className="buttonnav mr-2" to="/kitchen">
+                        <NavLink className="buttonnav" to="/kitchen">
                             Cocina
                         </NavLink>
                     </div>
