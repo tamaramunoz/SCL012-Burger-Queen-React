@@ -1,0 +1,23 @@
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #003538;
+    margin-top: 20px;
+}
+
+.title-kitchen {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    color: #003538;
+}
+
+.title-info {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

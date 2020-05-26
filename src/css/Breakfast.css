@@ -1,0 +1,84 @@
+.container-breakfast {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.breakfast-title {
+    color: #01292b;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+  
+.products-list {
+    color: #003538;
+}
+
+Button.menuButton {
+    padding: 15px;
+    margin: 5px;
+    border-style: none;
+    border-radius: 20px;
+    color: #f9a531;
+    background-color: #003538;
+}
+  
+.menuButton:hover {
+    border-style: none;
+    background-color: #f9a531;
+    color: #003538;
+}
+  
+.generalButtons {
+    font-family: 'Work Sans', sans-serif;
+    border-style: none;
+    border-radius: 20px;
+    background-color: #003538;
+}
+  
+.generalButtons:hover {
+    border-style: none;
+    background-color: #01292b;
+}
+
+.table-container {
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+.table-header {
+    color: #003538;
+    font-size: 18px;
+}
+
+.product-breakfast {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #003538;
+}
+
+.button-delete {
+    border-radius: 10px;
+    border-style: none;
+    background-color: brown;
+    color: #f9a531;
+    padding: 8px;
+}
+
+.total-amount {
+    margin-top: 30px;
+    font-size: 40px;
+    color: #01292b;
+}
+
+.send-kitchen {
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #f9a531;
+    color: #003538;
+    font-size: 18px;
+    border-style: none;
+}
+
+.send-kitchen:hover {
+    background-color: #003538;
+    color: #f9a531;
+}

@@ -27,7 +27,7 @@ const TableForm = (props) => {
         <h4 className="user-data" >Datos Cliente</h4>
 
         <form className="user-form" onSubmit={sendUserData}>
-          <div className="col-md-3">
+          <div className="input-container">
             <input
               placeholder="Ingrese Nombre"
               className="form-input"
@@ -37,7 +37,7 @@ const TableForm = (props) => {
             ></input>
           </div>
 
-          <div className="col-md-3">
+          <div className="input-container">
             <input
               placeholder="Ingrese Mesa"
               className="form-input"
@@ -47,7 +47,7 @@ const TableForm = (props) => {
             ></input>
           </div>
 
-          <div className="col-md-3">
+          <div className="input-container">
             <button className="button-agregar" type="submit">Agregar</button>
           </div>
         </form>

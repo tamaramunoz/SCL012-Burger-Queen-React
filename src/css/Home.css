@@ -1,5 +1,6 @@
 .home-container{
     display: flex;
+  
 }
 
 .background-images {
@@ -11,9 +12,10 @@
 }
 
 .text-home-box {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 300px;
 }
 
 .burger-text {

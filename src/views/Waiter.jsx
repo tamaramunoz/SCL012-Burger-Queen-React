@@ -6,28 +6,37 @@ import lunchphoto from '../img/lunch-yellow.png'
 import '../css/Waiter.css'
 
 
-const Waiter = (props) => {
-
+const Waiter = () => {
 
   return (
     <Fragment>
       <div className="waiter-container">
-        <h1 className="mainTitle">Mesero</h1>
+        <h1 className="witer-title">Mesero</h1>
         <div className="cards-container">
 
           <NavLink className="mr-2" to="/breakfast">
             <div className="space-down">
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={breakfastphoto} />
-            </Card>
+              <Card style={{ width: '18rem' }}>
+                <div className="container-breakfast">
+                  <Card.Img variant="top" src={breakfastphoto} />
+                  <div className="overlay">
+                    <div className="text">Desayunos</div>
+                  </div>
+                </div>
+              </Card>
             </div>
           </NavLink>
 
           <NavLink className="mr-2" to="/lunch">
             <div className="space-up">
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={lunchphoto} />
-            </Card>
+              <Card style={{ width: '18rem' }}>
+                <div className="container-lunch">
+                  <Card.Img variant="top" src={lunchphoto} />
+                  <div className="overlay">
+                    <div className="text">Almuerzos</div>
+                  </div>
+                </div>
+              </Card>
             </div>
           </NavLink>
         </div>

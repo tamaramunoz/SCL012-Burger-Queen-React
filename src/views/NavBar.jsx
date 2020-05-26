@@ -9,7 +9,7 @@ const NavBar = () => {
     return (
         <Fragment>
             <div className="navbar">
-                <Link className="navbar-brand" to="/"><img src={Logo} alt="logo" width={70} /></Link>
+                <Link className="navbar-brand" to="/"><img src={Logo} alt="logo" width={80} /></Link>
                 <div>
                     <div className="d-flex">
                         

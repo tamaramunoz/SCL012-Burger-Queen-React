@@ -3,6 +3,7 @@ import TaskRow from '../components/TaskRow'
 import OrderBanner from '../components/OrderBanner'
 import VisibilityControl from '../components/VisibilityControl'
 import { db } from '../firebase'
+import '../css/Kitchen.css'
 
 const Kitchen = (props) => {
 
@@ -44,7 +45,7 @@ const Kitchen = (props) => {
 
      return (
           <Fragment>
-               <div>
+               <div className="kitchen-container">
                     <OrderBanner
                          userName={userName}
                          order={order}

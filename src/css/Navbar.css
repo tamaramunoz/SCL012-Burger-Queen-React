@@ -5,8 +5,9 @@
 
 .buttonnav {
     background-color: #003538;
-    color: #fefefe;
+    color: #f9a531;
     padding: 20px;
+    font-size: 20px;
 }
 
 .buttonnav:hover {

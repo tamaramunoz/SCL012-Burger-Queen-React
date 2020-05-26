@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import TableForm from "../views/TableForm"
-import '../App.css'
+import '../css/Breakfast.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
 
@@ -63,7 +63,7 @@ const Breakfast = (props) => {
   
   return (
     <Fragment>
-      <div className="container mt-5">
+      <div className="container-breakfast mt-5">
         
       <div className="justify-content-center">
         <TableForm customerData={props.customerData} />
@@ -71,9 +71,9 @@ const Breakfast = (props) => {
 
         <div className="row">
           <div className="col-md-6">
-            <h2>Desayuno</h2>
+            <h2 className="breakfast-title">Desayuno</h2>
 
-            <h3>Lista de productos</h3>
+            <h3 className="products-list" >Lista de productos</h3>
             {
               breakfast.map(item => (
                 <button
@@ -88,24 +88,24 @@ const Breakfast = (props) => {
             }
           </div>
 
-          <div>
+          <div className="table-container">
             <table>
               <thead>
-                <tr>
-                  <th>Food</th>
-                  <th>Price</th>
-                  <th>Delete</th>
+                <tr className="table-header" >
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 {nameProduct.length > 0 ? (
                   nameProduct.map(item => (
                     <tr key={item.id} className='border-top margin-1 font-size-1'>
-                      <td>{item.name}</td>
-                      <td>{item.price}</td>
+                      <td className="product-breakfast">{item.name}</td>
+                      <td className="product-breakfast">{item.price}</td>
                       <td>
                         <button
-                          className="button muted-button"
+                          className="button-delete"
                           onClick={() => { deleteFoodFromList(item.id) }}
                         >
                           Delete </button>
@@ -120,15 +120,15 @@ const Breakfast = (props) => {
               </tbody>
             </table>
             <div>
-              <p>Total: {totalAmount()}</p>
+              <p className="total-amount">Total: {totalAmount()}</p>
             </div>
 
             <button
               onClick={() => addOrder()}
               value={nameProduct}
+              className="send-kitchen"
             >Enviar a Cocina</button>
 
-                <p> {props.customerData}</p>
           </div>
         </div>
       </div>
