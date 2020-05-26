@@ -15,7 +15,7 @@ const Home = () => {
                     <img src={logobq} alt="logo" className="home-logo"/>
                     
                     <Card.Text className="burger-text">
-                        Aplicación para tablets donde el mesero puede enviar sus pedidos a la cocina.
+                        Aplicación para tablets enfocada en Restaurantes donde el mesero puede enviar sus pedidos a la cocina con tan sólo un click.
                     </Card.Text>
                     </div>
                 </Card.ImgOverlay>
