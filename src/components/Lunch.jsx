@@ -27,8 +27,6 @@ const Lunch = () => {
     }, [])
 
     const selectProductLunch = (item) => {
-        console.log(item)
-
         setOrder([
             ...order,
             { name: item.name, price: item.price, id: shortid.generate() }
@@ -59,7 +57,6 @@ const Lunch = () => {
             suma += e.price
         ))
 
-        console.log(suma);
         return suma;
     }
 

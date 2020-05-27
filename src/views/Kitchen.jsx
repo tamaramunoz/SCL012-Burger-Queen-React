@@ -5,6 +5,7 @@ import VisibilityControl from '../components/VisibilityControl'
 import { db } from '../firebase'
 import '../css/Kitchen.css'
 
+
 const Kitchen = (props) => {
 
      const [userName, setUserName] = useState('Burger Queen')
