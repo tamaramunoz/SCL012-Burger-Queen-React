@@ -8,13 +8,24 @@
     font-size: 50px;
     margin-bottom: 30px;
 }
+
+.products-container-b {
+    display: flex;
+    flex-wrap: wrap;
+}
   
 .products-list {
     color: #003538;
+    border-bottom: 1px solid;
+    border-color: #b2bec3;
 }
 
 Button.menuButton {
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
     margin: 5px;
     border-style: none;
     border-radius: 20px;
@@ -26,6 +37,14 @@ Button.menuButton {
     border-style: none;
     background-color: #f9a531;
     color: #003538;
+}
+
+.iconButton {
+    margin-bottom: 5px;
+}
+
+.product-text-button {
+    width: 120px;
 }
   
 .generalButtons {

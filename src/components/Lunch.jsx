@@ -60,7 +60,7 @@ const Lunch = () => {
         }
 
         setOrder([])
-        setCustomerData({name: '', table: ''})
+        setCustomerData({ name: '', table: '' })
     }
 
     const deleteFoodFromList = async (id) => {
@@ -121,18 +121,22 @@ const Lunch = () => {
                         <h2 className="breakfast-title">Almuerzo</h2>
 
                         <h3 className="products-list">Lista de productos</h3>
-                        {
-                            lunch.map(item => (
-                                <button
-                                    className="menuButton"
-                                    key={item.id}
-                                    onClick={(e) => selectProductLunch(item)}
-                                >
-                                    <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
-                                    <p>{item.name}</p> <p>${item.price}</p>
-                                </button>
-                            ))
-                        }
+                        <div className="products-container-b">
+                            {
+                                lunch.map(item => (
+                                    <button
+                                        className="menuButton"
+                                        key={item.id}
+                                        onClick={(e) => selectProductLunch(item)}
+                                    >
+                                        <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
+                                        <div className="product-text-button">
+                                            <p>{item.name}</p> <p>${item.price}</p>
+                                        </div>
+                                    </button>
+                                ))
+                            }
+                        </div>
                     </div>
 
                     <div className="table-container">

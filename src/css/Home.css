@@ -1,13 +1,15 @@
 .home-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .background-images {
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 500px;
+    width: 700px;
+    height: 740px;
     background-color: #fefefe;
 }
 

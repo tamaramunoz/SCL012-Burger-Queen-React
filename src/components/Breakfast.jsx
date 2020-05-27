@@ -10,7 +10,7 @@ const Breakfast = (props) => {
 
   const [breakfast, setBreakfast] = useState([])
   const [nameProduct, setNameProduct] = useState([])
-  const [customerData, setCustomerData] = useState({name: '', table: ''})
+  const [customerData, setCustomerData] = useState({ name: '', table: '' })
 
   useEffect(() => {
     const getData = async () => {
@@ -61,7 +61,7 @@ const Breakfast = (props) => {
     }
 
     setNameProduct([])
-    setCustomerData({name: '', table: ''})
+    setCustomerData({ name: '', table: '' })
   }
 
   const deleteFoodFromList = async (id) => {
@@ -122,18 +122,22 @@ const Breakfast = (props) => {
             <h2 className="breakfast-title">Desayuno</h2>
 
             <h3 className="products-list" >Lista de productos</h3>
-            {
-              breakfast.map(item => (
-                <button
-                  className="menuButton"
-                  key={item.id}
-                  onClick={(e) => SelectProduct(item)}
-                >
-                  <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
-                  <p>{item.name}</p> <p>${item.price}</p>
-                </button>
-              ))
-            }
+            <div className="products-container-b">
+              {
+                breakfast.map(item => (
+                  <button
+                    className="menuButton"
+                    key={item.id}
+                    onClick={(e) => SelectProduct(item)}
+                  >
+                    <img src={item.img} alt="icono-producto" className="iconButton" width={45}></img>
+                    <div className="product-text-button">
+                      <p>{item.name}</p> <p>${item.price}</p>
+                    </div>
+                  </button>
+                ))
+              }
+            </div>
           </div>
 
           <div className="table-container">
