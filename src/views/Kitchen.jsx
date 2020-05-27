@@ -5,7 +5,7 @@ import { db } from '../firebase'
 import '../css/Kitchen.css'
 
 
-const Kitchen = (props) => {
+const Kitchen = () => {
 
      const [order, setOrder] = useState([])
      const [showCompleted, setShowCompleted] = useState(true)
@@ -40,8 +40,8 @@ const Kitchen = (props) => {
                          {order.map(item => (
                               <div style={{ width: '18rem' }} key={item.id} className="cards-ready" >
                                    <div className="cards-bodys">
-                                        <div className="card-title-kit">Cliente: {item.id}</div>
-                                        <div className="card-subtitle-kit">Pedido Mesa</div>
+                                        <div className="card-title-kit">Cliente: {item.client.name}</div>
+                                        <div className="card-subtitle-kit">Pedido: {item.client.table}</div>
                                         <div className="card-text-kit">
                                              {
                                                   item.takeOrder.map(e => (
@@ -51,10 +51,9 @@ const Kitchen = (props) => {
                                                   ))
                                              }
                                         </div>
-                                        <input type="checkbox" />
+                                        <input type="checkbox"/>
                                    </div>
                               </div>
-
                          ))}
                     </div>
 

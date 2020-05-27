@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import TableForm from "../views/TableForm"
 import '../css/Breakfast.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
@@ -9,6 +8,7 @@ const Breakfast = (props) => {
 
   const [breakfast, setBreakfast] = useState([])
   const [nameProduct, setNameProduct] = useState([])
+  const [customerData, setCustomerData] = useState({name: '', table: ''})
 
   useEffect(() => {
     const getData = async () => {
@@ -26,6 +26,19 @@ const Breakfast = (props) => {
     getData()
   }, [])
 
+
+  const handleInpuntChange = (event) => {
+    setCustomerData({
+      ...customerData,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const sendUserData = (event) => {
+    event.preventDefault();
+    console.log(customerData.name + ' ' + customerData.table)
+  }
+
   const SelectProduct = (item) => {
     // console.log(item)
     setNameProduct([
@@ -37,7 +50,8 @@ const Breakfast = (props) => {
   const addOrder = async () => {
     try {
       await db.collection('pedido').add({
-        takeOrder: nameProduct
+        takeOrder: nameProduct,
+        client: customerData
       })
 
     } catch (error) {
@@ -45,6 +59,7 @@ const Breakfast = (props) => {
     }
 
     setNameProduct([])
+    setCustomerData({name: '', table: ''})
   }
 
   const deleteFoodFromList = async (id) => {
@@ -64,14 +79,41 @@ const Breakfast = (props) => {
 
   return (
     <Fragment>
-      <div className="container-Wbreakfast mt-5">
+      <div className="user-container" >
+        <h4 className="user-data" >Datos Cliente</h4>
 
-        <div className="justify-content-center">
-          <TableForm 
-            customerData={props.customerData} 
-          />
+        <form className="user-form" onSubmit={sendUserData}>
+          <div className="input-container">
+            <input
+              placeholder="Ingrese Nombre"
+              className="form-input"
+              type="text"
+              name="name"
+              onChange={handleInpuntChange}
+            ></input>
+          </div>
+
+          <div className="input-container">
+            <input
+              placeholder="Ingrese Mesa"
+              className="form-input"
+              type="text"
+              name="table"
+              onChange={handleInpuntChange}
+            ></input>
+          </div>
+
+          <div className="input-container">
+            <button className="button-agregar" type="submit">Agregar</button>
+          </div>
+        </form>
+
+        <div>
+          <p> {customerData.name} - {customerData.table} </p>
         </div>
+      </div>
 
+      <div className="container-Wbreakfast">
         <div className="row">
           <div className="col-md-6">
             <h2 className="breakfast-title">Desayuno</h2>
