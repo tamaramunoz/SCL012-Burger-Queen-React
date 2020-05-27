@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import OrderBanner from '../components/OrderBanner'
-import VisibilityControl from '../components/VisibilityControl'
 import { db } from '../firebase'
 import '../css/Kitchen.css'
 
@@ -29,6 +28,11 @@ const Kitchen = () => {
 
      }, [])
 
+     const readyToEat = () => {
+          console.log('hice click de listo');
+          setShowCompleted(false)
+     }
+
 
      return (
           <Fragment>
@@ -51,27 +55,17 @@ const Kitchen = () => {
                                                   ))
                                              }
                                         </div>
-                                        <input type="checkbox"/>
+                                        <div className="button-order-ready">
+                                             <button
+                                                  onClick={() => readyToEat()}
+                                                  className="order-ready"
+                                             >Listo</button>
+                                        </div>
                                    </div>
                               </div>
                          ))}
                     </div>
 
-                    <div className="bg-secondary-text-white text-center p-2">
-                         <VisibilityControl
-                              description="Pedidos Listos"
-                              isChecked={showCompleted}
-                              orderReady={checked => setShowCompleted(checked)}
-                         />
-                    </div>
-                    {
-                         showCompleted && (
-                              <div>
-                                   <p>Listos para servir</p>
-                              </div>
-
-                         )
-                    }
                </div>
           </Fragment>
      );

@@ -36,7 +36,23 @@
     font-size: 16px;
 }
 
-input-check {
-    padding: 20px;
-    border-radius: 100px;
+.button-order-ready {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-ready {
+    background-color: #003538;
+    color: #fefefe;
+    padding: 10px;
+    border-style: none;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.ready-to-eat {
+    text-align: center;
+    font-size: 25px;
+    color: #003538;
+    margin-top: 20px;
 }
