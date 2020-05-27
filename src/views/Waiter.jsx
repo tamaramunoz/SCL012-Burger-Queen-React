@@ -4,12 +4,14 @@ import { NavLink } from "react-router-dom"
 import breakfastphoto from '../img/breakfast-yellow.png'
 import lunchphoto from '../img/lunch-yellow.png'
 import '../css/Waiter.css'
+import NavBar from "../components/NavBar"
 
 
 const Waiter = () => {
 
   return (
     <Fragment>
+      <NavBar />
       <div className="waiter-container">
         <h1 className="witer-title">Mesero</h1>
         <div className="cards-container">

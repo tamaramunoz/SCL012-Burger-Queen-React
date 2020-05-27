@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import NavBar from './NavBar'
 import '../css/Breakfast.css'
 import '../css/TableForm.css'
 import { db } from '../firebase'
@@ -79,6 +80,7 @@ const Lunch = () => {
 
     return (
         <Fragment>
+            <NavBar />
             <div className="container-Wbreakfast mt-5">
                 <div className="user-container" >
                     <h4 className="user-data" >Datos Cliente</h4>

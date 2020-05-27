@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import NavBar from './views/NavBar';
 import Home from './views/Home';
 import Waiter from './views/Waiter';
 import Kitchen from './views/Kitchen';
@@ -15,7 +14,7 @@ function App() {
 <Fragment>
       <Router>
         <div className="container mt-4">
-          <NavBar />
+          
           <Switch>
             <Route exact path="/">
               <Home />

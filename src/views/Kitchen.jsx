@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import NavBar from '../components/NavBar'
 import OrderBanner from '../components/OrderBanner'
 import { db } from '../firebase'
 import '../css/Kitchen.css'
@@ -36,6 +37,7 @@ const Kitchen = () => {
 
      return (
           <Fragment>
+               <NavBar />
                <div className="kitchen-container">
                     <OrderBanner
                          order={order}
