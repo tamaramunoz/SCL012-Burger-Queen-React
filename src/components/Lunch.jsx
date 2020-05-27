@@ -63,7 +63,7 @@ const Lunch = () => {
 
     return (
         <Fragment>
-            <div className="container-breakfast mt-5">
+            <div className="container-Wbreakfast mt-5">
 
                 <div className="justify-content-center">
                     <TableForm />
@@ -97,7 +97,7 @@ const Lunch = () => {
                                     <th>Eliminar</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="table-body-item">
                                 {order.length > 0 ? (
                                     order.map((product, id) => (
                                         <tr key={product.id} className='border-top margin-1 font-size-1'>

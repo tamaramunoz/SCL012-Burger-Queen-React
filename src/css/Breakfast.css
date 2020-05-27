@@ -45,9 +45,14 @@ Button.menuButton {
     margin-top: 80px;
 }
 
-.table-header {
+.table-header th{
     color: #003538;
     font-size: 18px;
+    padding: 10px;
+}
+
+.table-body-item td{
+    padding: 10px;
 }
 
 .product-breakfast {

@@ -100,7 +100,7 @@ const Breakfast = (props) => {
                   <th>Eliminar</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="table-body-item">
                 {nameProduct.length > 0 ? (
                   nameProduct.map(item => (
                     <tr key={item.id} className='border-top margin-1 font-size-1'>

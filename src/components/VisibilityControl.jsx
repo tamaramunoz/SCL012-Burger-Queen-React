@@ -10,7 +10,7 @@ const VisibilityControl = (props) => {
                     type="checkbox"
                     className="form-check-input"
                     checked={props.isChecked}
-                    onChange={e => props.createNewTask(e.target.checked)}
+                    onChange={e => props.orderReady(e.target.checked)}
                 />
                 <label htmlFor="form-check-label">
                     Mostrar {props.description}
