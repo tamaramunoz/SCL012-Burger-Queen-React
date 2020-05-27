@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import '../css/Breakfast.css'
+import '../css/TableForm.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
 
@@ -36,11 +37,10 @@ const Breakfast = (props) => {
 
   const sendUserData = (event) => {
     event.preventDefault();
-    console.log(customerData.name + ' ' + customerData.table)
+    // console.log(customerData.name + ' ' + customerData.table)
   }
 
   const SelectProduct = (item) => {
-    // console.log(item)
     setNameProduct([
       ...nameProduct,
       { name: item.name, price: item.price, id: shortid.generate() }
@@ -51,7 +51,8 @@ const Breakfast = (props) => {
     try {
       await db.collection('pedido').add({
         takeOrder: nameProduct,
-        client: customerData
+        client: customerData,
+        done: false
       })
 
     } catch (error) {

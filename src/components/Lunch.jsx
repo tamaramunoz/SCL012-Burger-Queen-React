@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import TableForm from "../views/TableForm"
 import '../css/Breakfast.css'
+import '../css/TableForm.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
 
@@ -9,6 +9,8 @@ const Lunch = () => {
 
     const [lunch, setLunch] = useState([]);
     const [order, setOrder] = useState([]);
+    const [ready, setReady] = useState(false)
+    const [customerData, setCustomerData] = useState({ name: '', table: '' })
 
     useEffect(() => {
         const getInfo = async () => {
@@ -23,8 +25,19 @@ const Lunch = () => {
         }
 
         getInfo()
-
     }, [])
+
+    const handleInpuntChange = (event) => {
+        setCustomerData({
+            ...customerData,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    const sendUserData = (event) => {
+        event.preventDefault();
+        // console.log(customerData.name + ' ' + customerData.table)
+    }
 
     const selectProductLunch = (item) => {
         setOrder([
@@ -36,7 +49,9 @@ const Lunch = () => {
     const addOrder = async () => {
         try {
             await db.collection('pedido').add({
-                takeOrder: order
+                takeOrder: order,
+                client: customerData,
+                done: ready
             })
 
         } catch (error) {
@@ -44,6 +59,7 @@ const Lunch = () => {
         }
 
         setOrder([])
+        setCustomerData({name: '', table: ''})
     }
 
     const deleteFoodFromList = async (id) => {
@@ -64,9 +80,38 @@ const Lunch = () => {
     return (
         <Fragment>
             <div className="container-Wbreakfast mt-5">
+                <div className="user-container" >
+                    <h4 className="user-data" >Datos Cliente</h4>
 
-                <div className="justify-content-center">
-                    <TableForm />
+                    <form className="user-form" onSubmit={sendUserData}>
+                        <div className="input-container">
+                            <input
+                                placeholder="Ingrese Nombre"
+                                className="form-input"
+                                type="text"
+                                name="name"
+                                onChange={handleInpuntChange}
+                            ></input>
+                        </div>
+
+                        <div className="input-container">
+                            <input
+                                placeholder="Ingrese Mesa"
+                                className="form-input"
+                                type="text"
+                                name="table"
+                                onChange={handleInpuntChange}
+                            ></input>
+                        </div>
+
+                        <div className="input-container">
+                            <button className="button-agregar" type="submit">Agregar</button>
+                        </div>
+                    </form>
+
+                    <div>
+                        <p> {customerData.name} - {customerData.table} </p>
+                    </div>
                 </div>
 
                 <div className="row">

@@ -55,6 +55,7 @@ const Kitchen = () => {
                                                   ))
                                              }
                                         </div>
+                                        <input type="checkbox" />
                                         <div className="button-order-ready">
                                              <button
                                                   onClick={() => readyToEat()}
@@ -64,6 +65,14 @@ const Kitchen = () => {
                                    </div>
                               </div>
                          ))}
+                    </div>
+
+
+                    <div className="ready-to-eat">
+                         <p>Listos para servir</p>
+                         {
+                              showCompleted && (<h1>listos</h1>)
+                         }
                     </div>
 
                </div>
