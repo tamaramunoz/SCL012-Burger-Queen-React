@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import '../src/App.css'
 import Home from './views/Home';
 import Waiter from './views/Waiter';
 import Kitchen from './views/Kitchen';
@@ -13,7 +13,7 @@ function App() {
   return (
 <Fragment>
       <Router>
-        <div className="container mt-4">
+        <div className="container">
           
           <Switch>
             <Route exact path="/">

@@ -1,25 +1,35 @@
 import React from 'react';
+import NavBar from '../components/NavBar'
 import '../css/Home.css'
-import { Card } from 'react-bootstrap'
-import burger from '../img/burger-white.png'
+import Background from '../img/hamburger.jpg'
 import logobq from '../img/main-logo.png'
 
 
+let sectionStyle = {
+    width: "1000px",
+    backgroundImage: `url(${Background})`
+};
+
 const Home = () => {
+
     return (
         <div className="home-container">
-            <Card className="background-images">
-                <Card.Img src={burger} alt="hamburguesa" />
-                <Card.ImgOverlay>
-                <div className="text-home-box">
-                    <img src={logobq} alt="logo" className="home-logo"/>
-                    
-                    <Card.Text className="burger-text">
-                        Aplicación para tablets enfocada en Restaurantes donde el mesero puede enviar sus pedidos a la cocina con tan sólo un click.
-                    </Card.Text>
+
+            <div className="background-images" style={sectionStyle}>
+                <div className="cardOverlay">
+                    <div className="container-nav">
+                        <NavBar />
                     </div>
-                </Card.ImgOverlay>
-            </Card>
+                    <div className="text-home-box">
+                        <img src={logobq} alt="logo" className="home-logo" />
+
+                        <p className="burger-text">
+                            Aplicación para tablets enfocada en Restaurantes donde el mesero puede enviar sus pedidos a la cocina con tan sólo un click.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
