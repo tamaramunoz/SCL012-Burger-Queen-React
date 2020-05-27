@@ -4,6 +4,7 @@ import '../css/Breakfast.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
 
+
 const Breakfast = (props) => {
 
   const [breakfast, setBreakfast] = useState([])
@@ -53,21 +54,21 @@ const Breakfast = (props) => {
 
   const totalAmount = () => {
     let suma = 0;
-        nameProduct.map(e => (
-           suma += e.price
-        ))
+    nameProduct.map(e => (
+      suma += e.price
+    ))
 
     return suma;
   }
 
-  
+
   return (
     <Fragment>
-      <div className="container-breakfast mt-5">
-        
-      <div className="justify-content-center">
-        <TableForm customerData={props.customerData} />
-      </div>
+      <div className="container-Wbreakfast mt-5">
+
+        <div className="justify-content-center">
+          <TableForm customerData={props.customerData} />
+        </div>
 
         <div className="row">
           <div className="col-md-6">

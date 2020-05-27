@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import TaskRow from '../components/TaskRow'
 import OrderBanner from '../components/OrderBanner'
 import VisibilityControl from '../components/VisibilityControl'
+import { Card } from 'react-bootstrap'
 import { db } from '../firebase'
 import '../css/Kitchen.css'
 
@@ -33,7 +34,7 @@ const Kitchen = (props) => {
 
      const toggleOrder = (task) =>
           setOrder(order.map(item => (item.name === task.name ? { ...item, done: !item.done } : item)))
-          
+
 
      const taskTableRows = (doneValue) => {
           return order
@@ -51,7 +52,22 @@ const Kitchen = (props) => {
                          order={order}
                     />
                     <ul>
-                         {order.map(item => ( <li key={item.id}>{item.id}</li> ))}
+                         {order.map(item => (
+                              <Card style={{ width: '18rem' }} key={item.id}>
+                                   <Card.Body>
+                                        <Card.Title>Cliente: {item.id}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">Pedido Mesa</Card.Subtitle>
+                                        <Card.Text>
+                                             {
+                                                  item.takeOrder.map(item => (
+                                                       <li key={item.id}>{item.name}</li>
+                                                  ))
+                                             }
+                                        </Card.Text>
+                                   </Card.Body>
+                              </Card>
+
+                         ))}
                     </ul>
 
                     <table className="table table-striped table-bordered">
