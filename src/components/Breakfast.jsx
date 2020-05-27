@@ -67,7 +67,9 @@ const Breakfast = (props) => {
       <div className="container-Wbreakfast mt-5">
 
         <div className="justify-content-center">
-          <TableForm customerData={props.customerData} />
+          <TableForm 
+            customerData={props.customerData} 
+          />
         </div>
 
         <div className="row">

@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react'
 import TaskRow from '../components/TaskRow'
 import OrderBanner from '../components/OrderBanner'
 import VisibilityControl from '../components/VisibilityControl'
-import { Card } from 'react-bootstrap'
 import { db } from '../firebase'
 import '../css/Kitchen.css'
 
@@ -51,24 +50,26 @@ const Kitchen = (props) => {
                          userName={userName}
                          order={order}
                     />
-                    <ul>
+                    <div className="container-kitchen-cards">
                          {order.map(item => (
-                              <Card style={{ width: '18rem' }} key={item.id}>
-                                   <Card.Body>
-                                        <Card.Title>Cliente: {item.id}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Pedido Mesa</Card.Subtitle>
-                                        <Card.Text>
+                              <div style={{ width: '18rem' }} key={item.id} className="cards-ready" >
+                                   <div className="cards-bodys">
+                                        <div className="card-title-kit">Cliente: {item.id}</div>
+                                        <div className="card-subtitle-kit">Pedido Mesa</div>
+                                        <div className="card-text-kit">
                                              {
                                                   item.takeOrder.map(item => (
-                                                       <li key={item.id}>{item.name}</li>
+                                                       <li key={item.id}
+                                                            className="cards-list-prod"
+                                                       >{item.name}</li>
                                                   ))
                                              }
-                                        </Card.Text>
-                                   </Card.Body>
-                              </Card>
+                                        </div>
+                                   </div>
+                              </div>
 
                          ))}
-                    </ul>
+                    </div>
 
                     <table className="table table-striped table-bordered">
                          <thead>

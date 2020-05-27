@@ -1,3 +1,26 @@
 .kitchen-container {
     font-family: 'Quicksand', sans-serif;
 }
+
+.container-kitchen-cards {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.cards-bodys {
+    border-radius: 20px;
+    background-color: #f9a531;
+    color: #003538;
+    padding: 10px;
+}
+
+.cards-ready {
+    margin-right: 20px;
+}
+
+.cards-list-prod {
+    list-style: none;
+    font-size: 16px;
+    
+}

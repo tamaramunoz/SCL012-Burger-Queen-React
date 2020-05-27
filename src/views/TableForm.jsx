@@ -9,7 +9,6 @@ const TableForm = (props) => {
   })
 
   const handleInpuntChange = (event) => {
-    // console.log(event.target.value)
     setCustomerData({
       ...customerData,
       [event.target.name]: event.target.value
@@ -20,6 +19,7 @@ const TableForm = (props) => {
     event.preventDefault();
     console.log(customerData.name + ' ' + customerData.table)
   }
+
 
   return (
     <Fragment>

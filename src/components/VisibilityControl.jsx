@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 
+
 const VisibilityControl = (props) => {
+
     return ( 
         <Fragment>
             <div className="form-check">
@@ -14,8 +16,6 @@ const VisibilityControl = (props) => {
                     Mostrar {props.description}
                 </label>
             </div>
-
-
         </Fragment>
      );
 }
