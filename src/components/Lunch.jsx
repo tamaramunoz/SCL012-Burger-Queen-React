@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import TableForm from "../views/TableForm"
+import '../css/Breakfast.css'
 import { db } from '../firebase'
 import shortid from 'shortid'
 
 
-const Lunch = (props) => {
+const Lunch = () => {
 
     const [lunch, setLunch] = useState([]);
     const [order, setOrder] = useState([]);
@@ -54,10 +55,10 @@ const Lunch = (props) => {
 
     const totalAmount = () => {
         let suma = 0;
-            order.map(e => (
-               suma += e.price
-            ))
-            
+        order.map(e => (
+            suma += e.price
+        ))
+
         console.log(suma);
         return suma;
     }
@@ -65,15 +66,17 @@ const Lunch = (props) => {
 
     return (
         <Fragment>
-            <div className="justify-content-center">
-                <TableForm />
-            </div>
-            <div className="container mt-5">
+            <div className="container-breakfast mt-5">
+
+                <div className="justify-content-center">
+                    <TableForm />
+                </div>
+
                 <div className="row">
                     <div className="col-md-6">
-                        <h2>Almuerzo</h2>
+                        <h2 className="breakfast-title">Almuerzo</h2>
 
-                        <h3>Lista de productos</h3>
+                        <h3 className="products-list">Lista de productos</h3>
                         {
                             lunch.map(item => (
                                 <button
@@ -88,24 +91,24 @@ const Lunch = (props) => {
                         }
                     </div>
 
-                    <div>
+                    <div className="table-container">
                         <table>
                             <thead>
-                                <tr>
-                                    <th>Food</th>
-                                    <th>Price</th>
-                                    <th>Delete</th>
+                                <tr className="table-header">
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {order.length > 0 ? (
                                     order.map((product, id) => (
                                         <tr key={product.id} className='border-top margin-1 font-size-1'>
-                                            <td>{product.name}</td>
-                                            <td>{product.price}</td>
+                                            <td className="product-breakfast">{product.name}</td>
+                                            <td className="product-breakfast">{product.price}</td>
                                             <td>
                                                 <button
-                                                    className="button muted-button"
+                                                    className="button-delete"
                                                     onClick={() => { deleteFoodFromList(product.id) }}
                                                 >
                                                     Delete </button>
@@ -120,16 +123,19 @@ const Lunch = (props) => {
                             </tbody>
                         </table>
                         <div>
-                                <p>Total: {totalAmount()}</p>
+                            <p className="total-amount">Total: {totalAmount()}</p>
                         </div>
 
                         <button
                             onClick={() => addOrder()}
                             value={order}
+                            className="send-kitchen"
                         >Enviar a Cocina</button>
+
                     </div>
                 </div>
             </div>
+
         </Fragment>
     )
 }

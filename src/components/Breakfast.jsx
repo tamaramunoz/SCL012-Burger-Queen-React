@@ -91,7 +91,7 @@ const Breakfast = (props) => {
           <div className="table-container">
             <table>
               <thead>
-                <tr className="table-header" >
+                <tr className="table-header">
                   <th>Producto</th>
                   <th>Precio</th>
                   <th>Eliminar</th>
