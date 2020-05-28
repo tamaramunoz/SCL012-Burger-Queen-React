@@ -6,10 +6,9 @@ import { db } from '../firebase'
 import '../css/Kitchen.css'
 
 
-const Kitchen = () => {
+const Kitchen = (props) => {
 
      const [order, setOrder] = useState([])
-     const [showCompleted, setShowCompleted] = useState(true)
 
      useEffect(() => {
 
@@ -18,7 +17,7 @@ const Kitchen = () => {
                try {
                     const data = await db.collection('pedido').get()
                     const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                    console.log(arrayData);
+                    // console.log(arrayData);
                     setOrder(arrayData)
 
                } catch (error) {
@@ -30,17 +29,14 @@ const Kitchen = () => {
 
      }, [])
 
-     const readyToEat = () => {
-          console.log('hice click de listo');
-          setShowCompleted(false)
-     }
-
      const toggleOrder = (item) => {
           setOrder(order.map(clientOrder => (clientOrder.id === item.id ? {...clientOrder, done: !clientOrder.done} : clientOrder)))
      }
 
-     const orderCards = () => {
-          return order.map(item => (
+     const orderCards = (doneValue) => {
+          return order
+          .filter(item => item.done === doneValue)
+          .map(item => (
                <CardKitchen item={item} key={item.id} toggleOrder={toggleOrder} />
           ))
      }
@@ -54,15 +50,13 @@ const Kitchen = () => {
                          order={order}
                     />
                     <div className="container-kitchen-cards">
-                         {orderCards()}
+                         {orderCards(false)}
                     </div>
 
 
                     <div className="ready-to-eat">
                          <p>Listos para servir</p>
-                         {
-                              showCompleted && (<h1>listos</h1>)
-                         }
+                         {orderCards(true)}
                     </div>
 
                </div>
