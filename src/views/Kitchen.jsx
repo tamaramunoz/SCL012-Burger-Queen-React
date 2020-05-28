@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import CardKitchen from '../components/CardKitchen'
 import NavBar from '../components/NavBar'
 import OrderBanner from '../components/OrderBanner'
 import { db } from '../firebase'
@@ -34,6 +35,16 @@ const Kitchen = () => {
           setShowCompleted(false)
      }
 
+     const toggleOrder = (item) => {
+          setOrder(order.map(clientOrder => (clientOrder.id === item.id ? {...clientOrder, done: !clientOrder.done} : clientOrder)))
+     }
+
+     const orderCards = () => {
+          return order.map(item => (
+               <CardKitchen item={item} key={item.id} toggleOrder={toggleOrder} />
+          ))
+     }
+
 
      return (
           <Fragment>
@@ -43,30 +54,7 @@ const Kitchen = () => {
                          order={order}
                     />
                     <div className="container-kitchen-cards">
-                         {order.map(item => (
-                              <div style={{ width: '18rem' }} key={item.id} className="cards-ready" >
-                                   <div className="cards-bodys">
-                                        <div className="card-title-kit">Cliente: {item.client.name}</div>
-                                        <div className="card-subtitle-kit">Pedido: {item.client.table}</div>
-                                        <div className="card-text-kit">
-                                             {
-                                                  item.takeOrder.map(e => (
-                                                       <li key={e.id}
-                                                            className="cards-list-prod"
-                                                       >{e.name}</li>
-                                                  ))
-                                             }
-                                        </div>
-                                        <input type="checkbox" />
-                                        <div className="button-order-ready">
-                                             <button
-                                                  onClick={() => readyToEat()}
-                                                  className="order-ready"
-                                             >Listo</button>
-                                        </div>
-                                   </div>
-                              </div>
-                         ))}
+                         {orderCards()}
                     </div>
 
 
