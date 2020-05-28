@@ -30,15 +30,15 @@ const Kitchen = () => {
      }, [])
 
      const toggleOrder = (item) => {
-          setOrder(order.map(clientOrder => (clientOrder.id === item.id ? {...clientOrder, done: !clientOrder.done} : clientOrder)))
+          setOrder(order.map(clientOrder => (clientOrder.id === item.id ? { ...clientOrder, done: !clientOrder.done } : clientOrder)))
      }
 
      const orderCards = (doneValue) => {
           return order
-          .filter(item => item.done === doneValue)
-          .map(item => (
-               <CardKitchen item={item} key={item.id} toggleOrder={toggleOrder} />
-          ))
+               .filter(item => item.done === doneValue)
+               .map(item => (
+                    <CardKitchen item={item} key={item.id} toggleOrder={toggleOrder} />
+               ))
      }
 
 
@@ -56,7 +56,9 @@ const Kitchen = () => {
 
                     <div className="ready-to-eat">
                          <p>Listos para servir</p>
-                         {orderCards(true)}
+                         <div className="container-kitchen-ready">
+                              {orderCards(true)}
+                         </div>
                     </div>
 
                </div>

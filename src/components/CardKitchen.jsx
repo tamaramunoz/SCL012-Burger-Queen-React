@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/Kitchen.css'
 
 const CardKitchen = (props) => {
     return (
