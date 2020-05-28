@@ -37,7 +37,7 @@ const Breakfast = (props) => {
   }
 
   const sendUserData = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // console.log(customerData.name + ' ' + customerData.table)
   }
 

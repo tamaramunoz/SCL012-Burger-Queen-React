@@ -24,9 +24,7 @@ const Kitchen = () => {
                     console.log(error)
                }
           }
-
           getOrders()
-
      }, [])
 
      const toggleOrder = (item) => {
