@@ -6,7 +6,7 @@ import { db } from '../firebase'
 import '../css/Kitchen.css'
 
 
-const Kitchen = (props) => {
+const Kitchen = () => {
 
      const [order, setOrder] = useState([])
 

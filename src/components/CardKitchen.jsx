@@ -15,14 +15,11 @@ const CardKitchen = (props) => {
                         ))
                     }
                 </div>
-                <input
-                    type="checkbox"
-                    checked={props.item.done}
-                    onChange={() => props.toggleOrder(props.item)}
-                />
                 <div className="button-order-ready">
                     <button
                         className="order-ready"
+                        value={props.item.done}
+                        onClick={() => props.toggleOrder(props.item)}
                     >Listo</button>
                 </div>
             </div>
