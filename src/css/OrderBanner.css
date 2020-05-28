@@ -21,3 +21,11 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+@media all and (max-width: 600px) {
+
+    .title-info {
+        font-size: 18px;
+    }
+
+}

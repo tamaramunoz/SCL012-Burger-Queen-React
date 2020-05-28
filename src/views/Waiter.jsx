@@ -16,7 +16,7 @@ const Waiter = () => {
         <h1 className="witer-title">Mesero</h1>
         <div className="cards-container">
 
-          <NavLink className="mr-2" to="/breakfast">
+          <NavLink to="/breakfast">
             <div className="space-down">
               <Card style={{ width: '18rem' }}>
                 <div className="container-breakfast">
@@ -29,7 +29,7 @@ const Waiter = () => {
             </div>
           </NavLink>
 
-          <NavLink className="mr-2" to="/lunch">
+          <NavLink to="/lunch">
             <div className="space-up">
               <Card style={{ width: '18rem' }}>
                 <div className="container-lunch">
