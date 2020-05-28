@@ -16,3 +16,19 @@
     text-decoration: none;
     border-radius: 15px;
 }
+
+@media all and (max-width: 800px) {
+    
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar-brand img{
+        width: 100px;
+    }
+
+    .buttonnav {
+        font-size: 40px;
+    }
+}
