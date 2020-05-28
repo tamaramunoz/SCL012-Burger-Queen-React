@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-position: center center;
+    background-image: url('../img/hamburger.jpg');
+    background-repeat: no-repeat;
 }
 
 .background-images {
@@ -10,7 +13,7 @@
     align-content: center;
     width: 700px;
     height: 740px;
-    background-color: #fefefe;
+    background-size: cover;
 }
 
 .container-nav {
@@ -54,6 +57,7 @@
 
     .home-container {
         width: 700px;
+        margin-bottom: 100px;
     }
 
     .background-images {
@@ -75,6 +79,6 @@
     }
 
     .cardOverlay {
-        margin-top: 190px;
+        margin-top: 200px;
     }
 }

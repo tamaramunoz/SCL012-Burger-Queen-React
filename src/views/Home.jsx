@@ -1,21 +1,15 @@
 import React from 'react';
 import NavBar from '../components/NavBar'
 import '../css/Home.css'
-import Background from '../img/hamburger.jpg'
 import logobq from '../img/main-logo.png'
 
-
-let sectionStyle = {
-    width: "1000px",
-    backgroundImage: `url(${Background})`
-};
 
 const Home = () => {
 
     return (
         <div className="home-container">
 
-            <div className="background-images" style={sectionStyle}>
+            <div className="background-images">
                 <div className="cardOverlay">
                     <div className="container-nav">
                         <NavBar />
