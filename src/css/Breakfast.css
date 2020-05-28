@@ -107,3 +107,20 @@ Button.menuButton {
     background-color: #003538;
     color: #f9a531;
 }
+
+@media all and (max-width: 800px) {
+
+    .products-container-b {
+        display: flex;
+        flex-direction: row;
+    }
+
+    Button.menuButton {
+        padding: 10px;
+    }
+
+    .table-container {
+        margin-left: 30px;
+    }
+}
+

@@ -17,9 +17,11 @@ const Home = () => {
                     <div className="text-home-box">
                         <img src={logobq} alt="logo" className="home-logo" />
 
-                        <p className="burger-text">
-                            Aplicación para tablets enfocada en Restaurantes donde el mesero puede enviar sus pedidos a la cocina con tan sólo un click.
-                        </p>
+                        <div className="burger-text-container">
+                            <p className="burger-text">
+                                Aplicación para tablets enfocada en Restaurantes donde el mesero puede enviar sus pedidos a la cocina con tan sólo un click.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
